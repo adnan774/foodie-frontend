@@ -1,0 +1,64 @@
+<div class="container mt-5">
+  
+  <!-- Admin Dashboard Heading -->
+  <div class="text-center mb-4">
+    <h2 class="fw-bold text-primary">Admin Dashboard</h2>
+    <p class="text-muted">Manage restaurants and dishes effortlessly.</p>
+  </div>
+
+  <div class="row">
+    
+    <!-- Add New Restaurant -->
+    <div class="col-md-6">
+      <div class="card shadow-lg border-0">
+        <div class="card-header bg-primary text-white text-center">
+          <h4>Add New Restaurant</h4>
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Restaurant Name" [(ngModel)]="newRestaurant.name">
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Location" [(ngModel)]="newRestaurant.location">
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Cuisine Type" [(ngModel)]="newRestaurant.cuisine">
+          </div>
+          <button class="btn btn-primary w-100" (click)="addRestaurant()">
+            <i class="bi bi-plus-circle"></i> Add Restaurant
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add New Dish -->
+    <div class="col-md-6">
+      <div class="card shadow-lg border-0">
+        <div class="card-header bg-success text-white text-center">
+          <h4>Add New Dish</h4>
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Dish Name" [(ngModel)]="newDish.name">
+          </div>
+          <div class="mb-3">
+            <input type="number" class="form-control" placeholder="Price (£)" [(ngModel)]="newDish.price">
+          </div>
+          <div class="mb-3">
+            <select class="form-control" [(ngModel)]="newDish.restaurantId">
+              <option value="" disabled selected>Select a Restaurant</option>
+              <option *ngFor="let restaurant of restaurants" [value]="restaurant.id">
+                {{ restaurant.name }} ({{ restaurant.location }})
+              </option>
+            </select>
+          </div>
+          <button class="btn btn-success w-100" (click)="addDish()">
+            <i class="bi bi-plus-circle"></i> Add Dish
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

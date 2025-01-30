@@ -1,0 +1,51 @@
+<div class="container text-center mt-5">
+  
+  <!-- Hero Section -->
+  <div class="py-5 bg-light shadow-sm rounded">
+    <h1 class="fw-bold display-4">Welcome to Foodie 🍔</h1>
+    <p class="lead text-muted">Discover, Order & Enjoy Your Favorite Meals from Top Restaurants!</p>
+
+    <!-- If Logged In, Show Dashboard Button -->
+    <div *ngIf="isUserLoggedIn()">
+      <button class="btn btn-success btn-lg mt-3 px-4 py-2 shadow" (click)="goToDashboard()">
+        <i class="bi bi-speedometer2"></i> Go to Dashboard
+      </button>
+    </div>
+
+    <!-- If Not Logged In, Show Signup/Login Options -->
+    <div *ngIf="!isUserLoggedIn()" class="mt-3">
+      <button class="btn btn-primary btn-lg me-2 px-4 py-2 shadow" (click)="goToSignup()">
+        <i class="bi bi-person-plus"></i> Sign Up
+      </button>
+      <button class="btn btn-outline-primary btn-lg px-4 py-2 shadow" (click)="goToLogin()">
+        <i class="bi bi-box-arrow-in-right"></i> Login
+      </button>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div class="row mt-5">
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm p-4">
+        <i class="fa fa-utensils fa-3x text-primary"></i>
+        <h4 class="mt-3">Top Restaurants</h4>
+        <p>Find and order from the best restaurants in your city.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm p-4">
+        <i class="fa fa-hamburger fa-3x text-primary"></i>
+        <h4 class="mt-3">Delicious Dishes</h4>
+        <p>Explore a variety of cuisines and mouth-watering dishes.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm p-4">
+        <i class="fa fa-truck fa-3x text-primary"></i>
+        <h4 class="mt-3">Fast Delivery</h4>
+        <p>Get your food delivered quickly to your doorstep.</p>
+      </div>
+    </div>
+  </div>
+
+</div>

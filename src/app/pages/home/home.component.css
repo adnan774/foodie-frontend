@@ -1,0 +1,21 @@
+.container {
+    max-width: 800px;
+  }
+  
+  .lead {
+    font-size: 1.25rem;
+  }
+  
+  .btn-lg {
+    padding: 12px 24px;
+  }
+  
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .fa-3x {
+    margin-bottom: 10px;
+  }
+  

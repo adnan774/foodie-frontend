@@ -1,27 +1,27 @@
-# Stage 1: Build the Angular App
+# Use Node.js as the base image for building the app
 FROM node:18 as build
 
 WORKDIR /usr/src/app
 
-# Copy package.json & package-lock.json and install dependencies
+# Copy package.json and package-lock.json
 COPY package*.json ./
+
+# Install dependencies
 RUN npm install
 
-# Copy source files and build Angular app
+# Copy the rest of the application code
 COPY . .
+
+# Build the Angular application for production
 RUN npm run build --configuration=production
 
-# Stage 2: Serve the Angular App with NGINX
+# Use NGINX as the base image to serve the frontend
 FROM nginx:alpine
 
-# Copy the built Angular app to the NGINX HTML directory
+# Copy the built Angular app to the NGINX directory
 COPY --from=build /usr/src/app/dist/foodie-frontend /usr/share/nginx/html
-
-# Copy a custom NGINX configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 80 for the web server
 EXPOSE 80
 
-# Start NGINX
 CMD ["nginx", "-g", "daemon off;"]

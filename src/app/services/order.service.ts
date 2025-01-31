@@ -10,7 +10,7 @@ import { catchError, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class OrderService {
-  private baseUrl = 'http://localhost:8080/api/orders';
+  private baseUrl = 'http://ec2-44-206-239-1.compute-1.amazonaws.com:8100/api/orders';
 
   constructor(private http: HttpClient) {}
 

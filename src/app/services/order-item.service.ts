@@ -8,7 +8,7 @@ import { OrderItem } from '../models/order-item';
   providedIn: 'root'
 })
 export class OrderItemService {
-  private baseUrl = 'http://localhost:8080/api/order-items';
+  private baseUrl = 'http://ec2-44-206-239-1.compute-1.amazonaws.com:8100/api/order-items';
 
   constructor(private http: HttpClient) {}
 

@@ -1,9 +1,9 @@
-# Use Node.js as the base image for building the app
+# Use Node.js to build the Angular app
 FROM node:18 as build
 
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json
+# Copy package.json and package-lock.json first
 COPY package*.json ./
 
 # Install dependencies
@@ -21,7 +21,7 @@ FROM nginx:alpine
 # Remove default Nginx files
 RUN rm -rf /usr/share/nginx/html/*
 
-# Copy the built Angular app (from 'browser' directory)
+# Copy the built Angular app correctly from 'browser' directory
 COPY --from=build /usr/src/app/dist/foodie-frontend/browser /usr/share/nginx/html
 
 # Copy custom Nginx config

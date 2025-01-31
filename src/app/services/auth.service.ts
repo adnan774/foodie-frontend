@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:8080/api/users';
+  private baseUrl = 'http://ec2-44-206-239-1.compute-1.amazonaws.com:8100/api/users';
 
   constructor(private http: HttpClient) {}
 

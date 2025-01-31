@@ -9,7 +9,7 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class RestaurantService {
-  private baseUrl = 'http://localhost:8080/api/restaurants';
+  private baseUrl = 'http://ec2-44-206-239-1.compute-1.amazonaws.com:8100/api/restaurants';
 
   constructor(private http: HttpClient) {}
 

@@ -6,7 +6,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl = 'http://localhost:8080/api/users';
+  private baseUrl = 'http://ec2-44-206-239-1.compute-1.amazonaws.com:8100/api/users';
 
   // Track login status dynamically
   private isLoggedInSubject = new BehaviorSubject<boolean>(!!localStorage.getItem('token'));

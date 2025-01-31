@@ -11,8 +11,15 @@ pipeline {
                 git branch: 'master', url: 'https://github.com/adnan774/foodie-frontend.git'
             }
         }
-        stage('Install Dependencies') {
+        stage('Check Node.js & Install Dependencies') {
             steps {
+                echo "Checking if Node.js and npm are installed"
+                sh '''
+                if ! command -v node &> /dev/null || ! command -v npm &> /dev/null; then
+                    echo "Node.js or npm not found! Ensure they are installed on Jenkins agent."
+                    exit 1
+                fi
+                '''
                 echo "Installing dependencies"
                 sh 'npm install'
             }
